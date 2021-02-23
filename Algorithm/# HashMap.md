@@ -6,7 +6,7 @@
 
 처음엔 민서의 의견을 참고하여 두 배열을 정렬 후 비교 하는 방법으로 품
 
-```
+```java
 import java.util.*;
 
 class Solution {
@@ -27,7 +27,7 @@ class Solution {
 
 위 풀이는 아래 풀이에 비해 3~4배 정도 느리다
 
-```
+```java
 import java.util.HashMap;
 import java.util.Map;
 

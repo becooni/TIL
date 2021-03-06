@@ -127,3 +127,30 @@ for step in steps:
 
 print(result)
 ```
+
+## (문제) 문자열 재정렬
+
+알파벳 대문자와 숫자(0~9)로만 구성된 문자열 S에서 알파벳을 오름차순으로 정렬하고 이어서 출력한 뒤 그 뒤에 모든숫자를 더해 이어서 출력
+
+### 해설
+- 요구사항대로 충실히 구현하면 되는 문제
+- 넘쉽
+
+```python
+s = input()
+
+s = sorted(s)
+
+result = ''
+
+sum = 0
+
+for i in s:
+    if i.isalpha():
+        result += i
+    elif i.isdigit():
+        sum += int(i)
+        
+result += str(sum)
+print(result)
+```

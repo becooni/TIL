@@ -52,18 +52,32 @@ Bytecode를 명령어 단위로 읽어서 한줄씩 실행하여 느림
 
 JVM이 Java Bytecode를 실행하기 위해 사용하는 메모리 공간
 
+![image](https://user-images.githubusercontent.com/5853404/110215598-fc4a2a80-7eed-11eb-9288-606ac4f035cd.png)
+
+
 ### 모든 스레드가 공유되는 것
+
+![image](https://user-images.githubusercontent.com/5853404/110215605-0c620a00-7eee-11eb-9fb3-e467853fa947.png)
 
 method area
 - 클래스 로더가 클래스 파일을 읽어오면 클래스 정보를 파싱해서 Method area에 저장
 - 변수, 메서드, 정적변수, 바이트코드 정보
+
+![image](https://user-images.githubusercontent.com/5853404/110215609-1552db80-7eee-11eb-8109-9dbd0cc92479.png)
+
 heap
 - 프로그램을 실행하면서 생성한 모든 객체를 Heap에 저장
 
 ### 스레드마다 존재하는 것
 
+![image](https://user-images.githubusercontent.com/5853404/110215626-2c91c900-7eee-11eb-8e7a-25578313404e.png)
+
+![image](https://user-images.githubusercontent.com/5853404/110215636-361b3100-7eee-11eb-897a-ea153e6612bb.png)
+
 PC registers
 - 각 스레드는 메서드를 실행하고 있고, pc는 그 메서드 안에서 몇번째 줄을 실행해야 하는지 나태내는 역할
+
+![image](https://user-images.githubusercontent.com/5853404/110215643-3ddad580-7eee-11eb-9f7b-a5b75d88331b.png)
 
 Java stacks
 - 스레드별 1개만 존재 
@@ -74,6 +88,8 @@ Java stacks
   - 메서드가 호출될때마다 생성됨
   - Local variables array, Operand stack, Frame data를 가짐
   - Frame data는 Constant pool, 이전 스택 프레임에 대한 정보, 현재 메서드가 속한 클래스/객체에 대한 참조 등의 정보를 가짐.
+
+![image](https://user-images.githubusercontent.com/5853404/110215655-4b905b00-7eee-11eb-83e6-36af2327a390.png)
 
 native method stacks
 - Java Bytecode가 아닌 다른 언어로 작성된 메서드를 의미 (C/C++ 성능향상의 목적)

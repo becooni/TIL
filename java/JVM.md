@@ -1,20 +1,52 @@
 # JVM
 
-출처 - https://youtu.be/UzaGOXKVhwU
+출처
+- https://youtu.be/UzaGOXKVhwU
+- https://asfirstalways.tistory.com/158
 
 Java Virtual Machine
 
 # JVM이란...?
 
-- C/C++은 컴파일 플랫폼과 타겟 플랫폼이 다르면 프로그램이 동자가지 않음
+- C/C++은 컴파일 플랫폼과 타겟 플랫폼이 다르면 프로그램이 동작하지 않음
 > Cross Compile로 해결
 
 - Java는 JVM으로 해결
-- Java 코드를 javac가 Java bytecode를 생성(.class 파일)하고 JVM에게 넘겨줌
 - 대신에 플랫폼에 JVM이 설치되어 있어야함
 - 네트워크에 연결된 모든 디바이스에서 작동하는것이 목적
 
+# 자바 프로그램 실행과정
+
+1. JVM은 OS로 부터 프로그램이 필요로 하는 메모리를 할당받음
+2. Java 코드를 javac가 Java bytecode(.class 파일)를 생성
+3. Class Loader를 통해 class 파일을 JVM 으로 로딩
+4. class 파일을 Execution engine통해 해석
+5. 해석된 바이트 코드는 Runtime Data Areas에 배치되어 실질적인 수행이 이루어짐
+
 # JVM 내부구조
+
+## Class Loader
+
+- JVM 내로 class 파일을 로드, 링크하여 Runtime Data Areas에 배치
+- Runtime 시에 동적으로 클래스를 로드하기 때문에 자바는 동적코드이며 컴파일 타임이 아닌 런타임에 참조함
+- jar파일 내 저장된 클래스들을 JVM 위에 탑재하고 사용하지 않는 클래스들은 메모리에서 삭제 (컴파일러 역할)
+
+## Execution Engine
+
+- Class Loader가 Runtime Data Areas에 배치한 클래스를 실행시키는 역할
+- Bytecode를 기계어로 변경함 (2가지 방식)
+
+1. Interpreter
+
+Bytecode를 명령어 단위로 읽어서 한줄씩 실행하여 느림
+  
+2. JIT (Just-In-Time)
+
+- Interpreter 방식을 보완
+- Interpreter 방식으로 실행하다가 적절한 시점에 Bytecode 전체를 컴파일하여 Native Code로 변경하여 직접 실행
+- 이후에는 더이상 Interpreting하지 않음
+- JIT는 Interpreting 하는 것보다 훨씬 오래 걸리므로 한번만 실행되는 코드라면 Interpreting하는 것이 더 유리함
+- JIT은 해당 메서드가 얼마나 자주 수행되는지 체크하고, 일정 정도를 넘을 때만 컴파일을 수행한다
 
 ## Runtime Data Areas
 

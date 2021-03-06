@@ -1,9 +1,9 @@
 # GC (Garbage Collector)
 
-- 출처
-https://d2.naver.com/helloworld/184615
-
-https://youtu.be/vZRmCbl871I
+출처
+- https://d2.naver.com/helloworld/184615
+- https://youtu.be/vZRmCbl871I
+- https://asfirstalways.tistory.com/159
 
 # GC
 
@@ -50,8 +50,8 @@ void stackHeap() {
 
 - New Generation
   - Eden
-  - Survival 0
-  - Survival 1
+  - Survivor 0
+  - Survivor 1
 - Old Generation
 
 1. 새로운 객체는 New Generation내에 Eden 영역에 할당됨
@@ -71,6 +71,7 @@ Old Generation 영역 내 gc를 major gc (4번 과정)
 
 # Stop-The-World
 
+- Major GC 때 발생
 - GC를 실행하기 위해 JVM이 application을 잠시 멈추는 것
 - stop-the-world가 발생하면 gc를 실행하는 스레드를 제외한 나머지 스레드는 모두 작업을 멈춤
 - GC가 완료되면 중단한 작업을 재개

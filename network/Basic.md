@@ -16,5 +16,6 @@
 - HTTP Request Message의 `Body` 부분의 데이터를 담아서 전송
 - Binary 데이터를 요청하거나 데이터 크기의 제한이 비교적 자유롭다
 
-# TCP 3-way Handshake
+## TCP 3-way Handshake
 
+![image](https://user-images.githubusercontent.com/5853404/110327315-253cfd80-805d-11eb-9cdd-93069825886d.png)

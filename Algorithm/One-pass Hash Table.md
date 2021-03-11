@@ -1,7 +1,6 @@
 # One-pass Hash Table
 
-문제출처: https://leetcode.com/problems/two-sum/solution/
-TwoSum
+문제출처: https://leetcode.com/problems/two-sum/solution/TwoSum
 
 ```kotlin
     fun twoSum(nums: IntArray, target: Int): IntArray {

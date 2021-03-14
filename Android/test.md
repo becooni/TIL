@@ -61,6 +61,8 @@ Manifest 관련문제
 
 풀이는 맞았지만 퍼포먼스 에러...
 
+정렬후 최대값과, 두번째 최대값을 더하기 때문에 시간복잡도는 최선 O(N) 최악은 O(N^2)
+
 ```java
 import java.util.Comparator;
 import java.util.List;
@@ -80,6 +82,32 @@ public class MaxSum {
         System.out.println(findMaxSum(list));
     }
 }
+```
+
+### 개선 !!!
+
+for문 한번에 max1, max2 모두 구함 시간복잡도 O(N)
+
+```java
+public static int findMaxSum(List<Integer> list) {
+
+        System.out.println("sort: " + list);
+
+        int max1 = 0;
+        int max2 = 0;
+
+        for (int i = 0; i < list.size(); i++) {
+            if (max2 < list.get(i)) {
+                if (max1 < max2) {
+                    max1 = list.get(i);
+                } else {
+                    max2 = list.get(i);
+                }
+            }
+        }
+
+        return max1 + max2;
+    }
 ```
 
 ## 알고리즘 2

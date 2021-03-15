@@ -56,6 +56,7 @@ https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/Java
 
 # Generic
 
+- 제네릭(Generic)은 클래스 내부에서 사용할 데이터 타입을 외부에서 지정하는 기법
 - 여러 타입의 객체를 다루는 메서드나 컬렉션에서 사용
 - 컴파일 과정에서 타입 체크를 함 
   - 안전성이 높음

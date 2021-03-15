@@ -230,3 +230,30 @@ class RentalTime {
     }
 }
 ```
+
+### 개선 !!! 
+
+start date 기준으로 오름차순으로 정렬하고 한번의 포문으로 완전탐색
+
+```java
+public static Boolean canScheduleAll(Collection<RentalTime> rentalTimes) {
+        ArrayList<RentalTime> rentalList = new ArrayList<>(rentalTimes);
+
+        rentalList.sort(Comparator.comparing(RentalTime::getStart));
+
+        RentalTime temp = rentalList.get(0);
+
+        for (int i = 1; i < rentalList.size(); i++) {
+
+            RentalTime rentalTime = rentalList.get(i);
+
+            if (temp.getEnd().compareTo(rentalTime.getStart()) > -1) {
+                return false;
+            } else {
+                temp = rentalTime;
+            }
+        }
+
+        return true;
+    }
+```

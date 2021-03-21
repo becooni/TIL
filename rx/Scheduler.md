@@ -20,19 +20,17 @@ IO 스케쥴러 | `Schedulers.io()`
 ## Example
 
 ```kotlin
-1 val source = Observable.just(/*data*/)
+1 Observable.just(/*data*/)
 2     .subscribeOn(Schedulers.io())
 3     .observeOn(Schedulers.computation())
 4     .map(/* data processing */)
-5
-6 source.observeOn(AndroidSchedulers.mainThread())
-7     .subscribe({/* init view stuff */ })
+5     .observeOn(AndroidSchedulers.mainThread())
+6     .subscribe({/* init view stuff */ })
 ```
 
 1. data 발행 Observable 생성
 2. 구독할 때 IO 쓰레드에서 데이터 발행
 3. 계산 쓰레드로 변경
 4. 계산 쓰레드에서 map 함수 수행
-5. empty
-6. 메인(ui) 쓰레드로 변경
-7. 구독
+5. 메인(ui) 쓰레드로 변경
+6. 구독

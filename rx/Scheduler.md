@@ -20,12 +20,12 @@ IO 스케쥴러 | `Schedulers.io()`
 ## Example
 
 ```kotlin
-1 Observable.just(/*data*/)
-2     .subscribeOn(Schedulers.io())
-3     .observeOn(Schedulers.computation())
-4     .map(/* data processing */)
-5     .observeOn(AndroidSchedulers.mainThread())
-6     .subscribe({/* init view stuff */ })
+1  Observable.just(/*data*/)
+2      .subscribeOn(Schedulers.io())
+3      .observeOn(Schedulers.computation())
+4      .map(/* data processing */)
+5      .observeOn(AndroidSchedulers.mainThread())
+6      .subscribe({/* init view stuff */ })
 ```
 
 1. data 발행 Observable 생성

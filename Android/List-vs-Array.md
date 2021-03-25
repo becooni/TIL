@@ -8,3 +8,4 @@ https://medium.com/asos-techblog/what-you-didnt-know-about-arrays-in-kotlin-d3b2
 
 - data class의 `Array` property를 쓰면 컴파일 경고가 뜸
 - equals(), hashCode(), toString() 등 data class가 자동으로 생성해주는 메소드가 없기 때문
+- 되도록 list를 쓰도록하자

@@ -1,3 +1,3 @@
 # TIL
 
-TIL을 기록한다.
+Today I Learned ✏️

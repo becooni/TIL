@@ -1,0 +1,7 @@
+# 코틀린 원시(Primitives) 타입에 관해서...
+
+https://kotlinlang.org/docs/basic-types.html#numbers-representation-on-the-jvm
+
+Java의 'Integer'나 'Double'처럼 primitive type을 위한 별도의 wrapper class가 존재하지 않는다. 모든 primitive type은 객체 취급을 받는다. 따라서 Int 같은 변수는 객체에 할당된 toString 함수 등을 바로바로 이용할 수 있다.
+
+그러나 nullable 타입으로 선언할 경우 객체타입으로 변함

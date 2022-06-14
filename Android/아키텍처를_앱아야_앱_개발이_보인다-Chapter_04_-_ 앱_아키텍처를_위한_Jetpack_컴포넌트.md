@@ -9,7 +9,7 @@
   - androidx.* 패키지로 제공
   - 하위 호환을 위함
 
-## 1. Databinding
+# 1. Databinding
 
 - 선언적 형식으로 레이아웃 UI 구성 요소를 앱 데이터와 결합하는 라이브러리
 
@@ -42,7 +42,7 @@ textView.text = viewModel.userName
     - Fragment에서 사용할 때는 주의 (onDestroyView 시점에 binding 객체를 해제해야함)
   - NPE 방지
 
- ### Databinding 설정
+ ## Databinding 설정
 
  - Databinding 설정 후 활성화 되는 기능
    - 구문 강조
@@ -50,7 +50,7 @@ textView.text = viewModel.userName
    - XML 코드 자동 완성
    - 빠른 코드 참조
 
-### 바인딩 클래스 생성하기
+## 바인딩 클래스 생성하기
 
 - 생성되는 모든 바인딩 클래스는 ViewDataBinding을 상속함
 
@@ -61,7 +61,7 @@ textView.text = viewModel.userName
 
 - 비즈니스 로직은 ~Binding 클래스가 아닌 ~BindingImpl 클래스에 구현되어 있음
 
-### 바인딩 클래스로 바인딩 객체 생성하기
+## 바인딩 클래스로 바인딩 객체 생성하기
 
 - 바인딩 클래스를 알 경우
   - layout inflate 동시에
@@ -101,16 +101,16 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(R.layout.activity_mai
 }
 ```
 
-### 바인딩 클래스 이름 사용자화하기
+## 바인딩 클래스 이름 사용자화하기
 
 - `<data>` 태그 내 class 속성을 사용하여 변경
 
-### ID로 View 참조하기
+## ID로 View 참조하기
 
 - findViewById() 결과를 캐싱해두기 때문에 호출할 필요 없음
 - 바인딩 클래스의 멤버 변수에 접근하여 View 참조
 
-### 레이아웃에 변수 선언하기
+## 레이아웃에 변수 선언하기
 
 - 레이아웃에 변수를 선언하고 변수에 값을 대입하는 것으로 뷰의 상태를 변경함
 
@@ -166,13 +166,13 @@ binding.myText = "HelloWorld"
 - BG thread에서 데이터 모델을 변경해도 문제가 없음
   - 그러나 컬렉션 타입일 경우 동시성 오류 발생함
 
-### 바인딩 표현식 알아보기
+## 바인딩 표현식 알아보기
 
-#### escaspe 문자
+### escaspe 문자
 - && -> `&amp;&amp;`
 - < -> `&lt;`
 
-#### 지원 목록
+### 지원 목록
 - instanceof
 - 그룹핑 -> ()
 - 문자, 문자열, 수, null
@@ -182,29 +182,29 @@ binding.myText = "HelloWorld"
 - 배열 접근
 - 삼항 연산자
 
-#### 지원하지 않는 기능
+### 지원하지 않는 기능
 - this
 - super
 - new
 - 명시적 제네릭 호출
   - XXX.set<>()
 
-#### null 병합 연산자 (??)
+### null 병합 연산자 (??)
 - 왼쪽의 피연산자부가 null 이면 오른쪽 채택
 
 ```
 android:text="@{user.firstName ?? user.lastName}"
 ```
 
-#### NPE 피하기
+### NPE 피하기
 - 바인딩 클래스는 자동으로 null을 검사함
 - user.name 참조의 경우 user가 null일 경우 user.name도 null로 처리
 - user.age 참조의 경우 user가 null일 경우 user.age 디폴트 0 처리
 
-#### Collections 클래스
+### Collections 클래스
 - [] 연산자 사용 가능함
 
-#### 문자열 그대로 사용하기
+### 문자열 그대로 사용하기
 - 작은따옴표
 ```
 android:text='@{map["firstName"]}'
@@ -215,14 +215,14 @@ android:text='@{map["firstName"]}'
 android:text="@{map[`firstName`]}"
 ```
 
-#### 안드로이드 리소스 참조
+### 안드로이드 리소스 참조
 ```
 @dimen/largeSize
 @string/nameFormat(firstName, lastName)
 @plurals/orange(orangeCount, orageCount)
 ```
 
-### `<import>` 사용하기
+## `<import>` 사용하기
 - alias를 통해 이름 변경하여 참조 가능
 
 ```xml
@@ -246,7 +246,7 @@ android:text="@{map[`firstName`]}"
 - static 필드/메서드 참조
 - java.lang.* 패키지는 자동 import 되므로 생략 가능
 
-#### `<include>` 사용하기
+## `<include>` 사용하기
 ```xml
 <include layout="@layout/myInclude"
     app:user="@{user}" />
@@ -264,7 +264,7 @@ android:text="@{map[`firstName`]}"
 
 > 주의! 데이터바인딩은 `<merge>` 하위에 `<include>`를 허용하지 않는다.
 
-### 이벤트 처리하기
+## 이벤트 처리하기
 - onClick() 등과 같은 이벤트를 뷰로부터 가져와서 처리하는 기능을 제공
 - 메서드 참조
   - 리스너 메서드의 시그니처를 따라 참조
@@ -273,8 +273,9 @@ android:text="@{map[`firstName`]}"
   - 이벤트가 발생할때 마다 해당 람다 표현식을 실행할지 결정
   - 대상 객체의 null여부과 관계 없이 항상 리스너 생성
 
-#### 메서드 참조
+### 메서드 참조
 - 컴파일 타임에 해당 표현식 검사함
+  - 해당 메서드가 존재하지 않거나 메서드 시그니처가 정확하지 않은 경우 에러 확인
 
 - 메서드 참조 vs 리스너 바인딩
   - 데이터 바인딩이 일어날 때 실제 리스너의 생성 여부
@@ -300,11 +301,15 @@ class MyHandlers {
 </layout>
 ```
 
-#### 리스너 바인딩
-- 리턴 타입만 이벤트 리스너와 일치하면 됨
+### 리스너 바인딩
+- 메서드참조와 다르게 단지 이벤트 리스너와 일치하는 리턴타입을 가지면 됨
+- 콜백이 사용될 때 데이터 바인딩은 자동으로 필요한 리스너를 생성
+- 이벤트 발생 시 주어진 표현식 평가
+- 평가 진행 중 null, 스레드 안전 확보
+
 ```kotlin
 class Presenter {
-    fun onSaveClick(task: Task) {
+    fun onCompleteChanged(task: Task, completed: Boolean) {
         // ..
     }
 }
@@ -321,7 +326,14 @@ class Presenter {
             type="com.example.Presenter"/>
     </data>
 
-    <TextView
-        android:onClick="@{() -> presenter.onSaveClick(task)}" />
+    <CheckBox
+        android:onCheckChanged="@{(view) -> presenter.onSaveClick(view, task)}" />
 </layout>
 ```
+
+```xml
+<TextView
+android:onClick="@{(v) -> v.isVisible() ? doSomthing() : void}" />
+```
+
+##
